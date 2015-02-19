@@ -1,0 +1,102 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+   
+  <listener>
+		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>spring-remoting</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:/**/*spring-service-context.xml,classpath*:com/**/*spring-service-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring-remoting</servlet-name>
+		<url-pattern>/remote-service/*</url-pattern>
+	</servlet-mapping>
+   
+	
+	
+			<servlet>
+		<servlet-name>fetch</servlet-name>
+		<display-name>fetch</display-name>
+		<servlet-class>com.mihir.testing.servlets.RestaurantSearchFetcher</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>fetch</servlet-name>
+		<url-pattern>/getNextRestuarantList</url-pattern>
+		</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>orderCart</servlet-name>
+		<display-name>orderCart</display-name>
+		<servlet-class>com.mihir.testing.servlets.OrderCartProcessor</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>orderCart</servlet-name>
+		<url-pattern>/updateOrderCart</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+<servlet-name>welcome</servlet-name>
+<jsp-file>/JSP/welcome.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>welcome</servlet-name>
+<url-pattern>/welcomePage</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>detailPage</servlet-name>
+<jsp-file>/JSP/RestaurantDetailPage.jsp</jsp-file>
+
+</servlet>
+ 
+<servlet-mapping>
+<servlet-name>detailPage</servlet-name>
+<url-pattern>/RestaurantDetailPage</url-pattern>
+</servlet-mapping>
+
+
+
+<servlet>
+<servlet-name>searchListPage</servlet-name>
+<jsp-file>/JSP/searchListPage.jsp</jsp-file>
+</servlet>
+ 
+<servlet-mapping>
+<servlet-name>searchListPage</servlet-name>
+<url-pattern>/searchListPage</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>searchProcessor</servlet-name>
+<servlet-class>com.mihir.testing.servlets.RestaurantSearchProcessor</servlet-class>
+
+</servlet>
+ 
+<servlet-mapping>
+<servlet-name>searchProcessor</servlet-name>
+<url-pattern>/searchProcessor</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+<servlet-name>autoComplete</servlet-name>
+<servlet-class>com.mihir.testing.servlets.GetSuggestionList</servlet-class>
+</servlet>
+ 
+<servlet-mapping>
+<servlet-name>autoComplete</servlet-name>
+<url-pattern>/getSuggestionList</url-pattern>
+</servlet-mapping>
+  
+</web-app>
